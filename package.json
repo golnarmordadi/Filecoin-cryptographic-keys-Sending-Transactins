@@ -1,0 +1,38 @@
+{
+  "name": "ali",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start": "nodemon --exec ts-node src/keypairs.ts",
+    "build": "tsc -p . && ncp src/schema dist/schema",
+    "start:dev": "npm run build:dev",
+    "watch:back": "nodemon",
+    "build:dev": "nodemon src/server.ts --exec ts-node-dev src/server.ts -e ts,graphql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/node": "^14.0.13",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.24.0",
+    "nodemon": "^1.19.4",
+    "prettier": "2.2.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "@blitslabs/filecoin-js-signer": "^1.0.6",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "axios": "^0.21.1",
+    "big-number": "^2.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "filecoin.js": "0.0.5-alpha",
+    "ts-node-dev": "^1.1.6",
+    "typescript-eslint": "0.0.1-alpha.0"
+  }
+}

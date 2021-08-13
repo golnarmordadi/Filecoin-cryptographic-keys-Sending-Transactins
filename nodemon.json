@@ -1,0 +1,6 @@
+{
+  "watch": "./src",
+  "ext": "ts",
+  "exec": "npm run build-back && npm start && ts-node",
+  "delay": "1000"
+}
