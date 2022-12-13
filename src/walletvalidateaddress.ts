@@ -1,5 +1,8 @@
 const  axios = require('axios');
 
+const bearerToken = "";
+const adddress = "";
+
 //** WalletBalance returns the balance of the given address at the current head of the chain. */
 async function main() {
 
@@ -8,7 +11,7 @@ async function main() {
       "method": "Filecoin.WalletValidateAddress", 
       "id": 0,
       "params": [
-        "t1jdlfl73voaiblrvn2yfivvn5ifucwwv5f26nfza"
+        adddress
       ]
   });
 
@@ -18,7 +21,7 @@ async function main() {
       url: 'https://api.node.glif.io',
       headers: { 
           /** Token obtained from local lotus node */
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.GRFjz-pVUeD4GRzHFFvr2ABWkMoaYdHY8Mq4L2jpZeQ', 
+          'Authorization': bearerToken, 
           'Content-Type': 'application/json'
       },
       data : data
