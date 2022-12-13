@@ -3,7 +3,8 @@ const BigNumber = require('big-number');
 import { FilecoinClient, FilecoinSigner } from '@blitslabs/filecoin-js-signer';
 
 const testMnemonic = 'equip will roof matter pink blind book anxiety banner elbow sun young';
-
+const receiverAddress = "";
+const privateKey = "";
 
 /** Generate a seed (mnemonic). */
 function generateMnemonic(testMnemonic: String) {
@@ -29,24 +30,24 @@ async function transactionSign(){
   const filecoin_signer = new FilecoinSigner()
 
   const unsignedMessage = await filecoin_signer.paych.createPaymentChannelMsg(
-    't1xgb73oc3s3sengf5ghvb5jzty5ftokodkibtmfa', 'f01',BigNumber(1e18) , 0, 'testnet'
+    receiverAddress , 'f01',BigNumber(1e18) , 0, 'testnet'
   )   
 
-  const signedMessage = await filecoin_signer.tx.transactionSignLotus(unsignedMessage, 'd5f144b198cc3d3ad9df737335a4bd2880116c1ca774a7d847b1770d69470243');
+  const signedMessage = await filecoin_signer.tx.transactionSignLotus(unsignedMessage, privateKey);
   console.log(signedMessage);
 }
 
 /** Create, sign and broadcast a message send FIL  */
 async function sendTransaction(){
   const endpoint = 'https://calibration.node.glif.io';
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBbGxvdyI6WyJyZWFkIiwid3JpdGUiLCJzaWduIiwiYWRtaW4iXX0.f_asUQSSSHlMgM51IOGLSX0bZwo_s8434jvdRs_4GV0';
+  const token = '';
   const filecoin_client = new FilecoinClient(endpoint, token)
 
   const response = await filecoin_client.tx.send(
-    't1xgb73oc3s3sengf5ghvb5jzty5ftokodkibtmfa', // There should be actor if not throw aan error
+    receiverAddress, // There should be actor if not throw aan error
     BigNumber(10),
     100,
-    'd5f144b198cc3d3ad9df737335a4bd2880116c1ca774a7d847b1770d69470243',
+    privateKey,
     'testnet',
     false
   )
